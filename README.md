@@ -1,28 +1,54 @@
-# Multi-Resolution Image Resizer
+# Image Tools
 
-A Python tool for resizing images to multiple resolutions with various strategies.
+- `resize.py` for batch resizing images using settings from `.env`
+- `blur.py` for interactive image blur
 
-## Features
-- Reads target resolutions from `.env` file
-- Supports multiple resize strategies:
-  - `cover`: Fill target and crop excess
-  - `pad`: Keep full content and add padding to reach exact target size
-  - `contain`: Keep full content without padding (output may be smaller)
-- Configurable output compression and format conversion
-- Custom output folder labels and prefixes
+## Install
 
-## Installation
-Install dependencies:
-```
+```bash
 pip install Pillow python-dotenv
 ```
 
-## Usage
-1. Put your source images in the `input/` folder
-2. Edit `.env` to set your target resolutions
-3. Run: `python resize_images.py`
+## Supported Images
 
-## Requirements
-- Python 3.x
-- Pillow (PIL)
-- python-dotenv
+`jpg`, `jpeg`, `png`, `webp`, `bmp`, `tiff`
+
+## Resize Images
+
+1. Put images in the `input/` folder.
+2. Edit `.env` with the sizes and options you want.
+3. Run:
+
+```bash
+python resize.py
+```
+
+Key `.env` settings:
+
+- `TARGET_RESOLUTIONS=1080x1920,720x1280`
+- `RESIZE_MODE=cover`, `pad`, or `contain`
+- `OUTPUT_FORMAT=original`, `jpeg`, `png`, or `webp`
+- `INPUT_DIR` and `OUTPUT_DIR` if you want custom folders for each resolution
+
+Output goes to the folder set in `OUTPUT_DIR`.
+
+## Blur Images
+
+Run:
+
+```bash
+python blur.py
+```
+
+The script will ask you for:
+
+- source image or folder
+- output folder
+- blur mode
+- blur strength or multiple strengths
+- overwrite yes/no
+
+Blur outputs are grouped like:
+
+`blur_output/gaussian-2/`
+

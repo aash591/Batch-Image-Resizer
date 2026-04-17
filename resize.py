@@ -447,7 +447,7 @@ def main() -> None:
     raw_folder_labels = os.getenv("OUTPUT_FOLDER_LABELS", "")
     output_folder_prefix = os.getenv("OUTPUT_FOLDER_PREFIX", "")
     input_dir = resolve_config_path(os.getenv("INPUT_DIR", "input"), "input")
-    output_dir = resolve_config_path(os.getenv("OUTPUT_DIR", "output"), "output")
+    output_dir = resolve_config_path(os.getenv("OUTPUT_DIR", "resize_output"), "resize_output")
     quality = int(os.getenv("QUALITY", "92"))
     resize_mode = os.getenv("RESIZE_MODE", "cover").strip().lower()
     output_format = os.getenv("OUTPUT_FORMAT", "original").strip().lower()
