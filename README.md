@@ -5,6 +5,15 @@
 
 ## Install
 
+For Termux (Android), install system dependencies first:
+
+```bash
+pkg update
+pkg install libjpeg-turbo libpng freetype
+```
+
+Then install Python packages:
+
 ```bash
 pip install Pillow python-dotenv
 ```
